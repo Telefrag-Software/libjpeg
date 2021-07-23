@@ -23,9 +23,16 @@
 
 #ifndef JCONFIG_INCLUDED	/* in case jinclude.h already did */
 #include "jconfig.h"		/* widely used configuration options */
-#endif
-#include "jmorecfg.h"		/* seldom changed options */
 
+#ifdef HAVE_STDDEF_H
+#include <stddef.h> // size_t
+#endif
+
+#include <stdio.h> // FILE
+
+#endif
+
+#include "jmorecfg.h"		/* seldom changed options */
 
 #ifdef __cplusplus
 #ifndef DONT_USE_EXTERN_C
@@ -883,7 +890,7 @@ typedef JMETHOD(boolean, jpeg_marker_parser_method, (j_decompress_ptr cinfo));
 /* Short forms of external names for systems with brain-damaged linkers.
  * We shorten external names to be unique in the first six letters, which
  * is good enough for all known systems.
- * (If your compiler itself needs names to be unique in less than 15 
+ * (If your compiler itself needs names to be unique in less than 15
  * characters, you are out of luck.  Get a better compiler.)
  */
 
